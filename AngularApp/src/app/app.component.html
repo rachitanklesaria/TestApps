@@ -1,0 +1,25 @@
+<body>
+
+
+    <header>
+        <h1>Angular Test Application</h1>
+    </header>
+    <nav>
+        <span>Test Cases: </span>
+        <button (click)="generateData(1000)">Create 1000</button>
+        <button (click)="generateData(5000)">Create 5000</button>
+        <button (click)="generateData(10000)">Create 10000</button>
+        <button (click)="clearData()">Clear All</button>
+    </nav>
+    <div>
+        <h2>Output Area</h2>
+        <table>
+            @for(d of data; track $index) {
+            @if($index % 10 === 0) {
+            <tr>
+                }
+                <td>{{d}}</td>
+                }
+        </table>
+    </div>
+</body>

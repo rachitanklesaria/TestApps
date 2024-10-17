@@ -9,10 +9,12 @@
         <button (click)="generateData(1000)">Create 1000</button>
         <button (click)="generateData(5000)">Create 5000</button>
         <button (click)="generateData(10000)">Create 10000</button>
+        <button (click)="displayData()">Display Records</button>
         <button (click)="clearData()">Clear All</button>
     </nav>
     <div>
         <h2>Output Area</h2>
+        @if(display==true) {
         <table>
             @for(d of data; track $index) {
             @if($index % 10 === 0) {
@@ -21,5 +23,6 @@
                 <td>{{d}}</td>
                 }
         </table>
+        }
     </div>
 </body>

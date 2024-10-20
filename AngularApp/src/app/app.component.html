@@ -5,24 +5,24 @@
         <h1>Angular Test Application</h1>
     </header>
     <nav>
-        <span>Test Cases: </span>
+        <span class="nav">Test Cases: </span>
         <button (click)="generateData(1000)">Create 1000</button>
         <button (click)="generateData(5000)">Create 5000</button>
         <button (click)="generateData(10000)">Create 10000</button>
+        <button (click)="generateData(50000)">Create 50000</button>
+        <button (click)="updateData(1000)">Update 1000</button>
+        <button (click)="updateData(5000)">Update 5000</button>
+        <button (click)="updateData(10000)">Update 10000</button>
+        <button (click)="updateData(50000)">Update 50000</button>
         <button (click)="displayData()">Display Records</button>
-        <button (click)="clearData()">Clear All</button>
+        <button (click)="clearData()">Delete Records</button>
     </nav>
     <div>
         <h2>Output Area</h2>
         @if(display==true) {
-        <table>
-            @for(d of data; track $index) {
-            @if($index % 10 === 0) {
-            <tr>
-                }
-                <td>{{d}}</td>
-                }
-        </table>
+        @for(d of data; track $index) {
+        <span>{{d}}</span>
+        }
         }
     </div>
 </body>

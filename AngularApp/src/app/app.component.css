@@ -43,12 +43,18 @@ h2 {
     margin-bottom: 20px;
 }
 
-span {
+span.nav {
     color: yellow;
     font-weight: bolder;
 }
 
 button {
     height: 75%;
-    width: 10%;
+    width: 8%;
+}
+
+span {
+    display: inline-block;
+    width: 8%;
+    text-align: center;
 }

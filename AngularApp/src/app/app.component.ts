@@ -13,10 +13,23 @@ declare function buildData(num: any): any;
 export class AppComponent {
   title = 'AngularApp';
 
-  data = [];
+  data: string[] = [];
+  size = 6;
+  chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
   display = false;
 
+  ranNum(max: number) {
+    return Math.floor(Math.random() * (max));
+  }
+
   generateData(num: any) {
+    for (let i = 0; i < num; i++) {
+      let str = "";
+      for (let j = 0; j < this.size; j++) {
+        str += this.chars.charAt(this.ranNum(this.chars.length));
+      }
+      this.data[i] = str;
+    }
     this.data = buildData(num);
     localStorage.setItem("data", JSON.stringify(this.data));
     this.data = [];

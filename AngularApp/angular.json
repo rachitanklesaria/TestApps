@@ -29,9 +29,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [
-              "src/app/dummyData.js"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {

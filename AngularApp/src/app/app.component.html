@@ -18,7 +18,6 @@
         <button (click)="clearData()">Delete Records</button>
     </nav>
     <div>
-        <h2>Output Area</h2>
         @if(display==true) {
         @for(d of data; track $index) {
         <span>{{d}}</span>

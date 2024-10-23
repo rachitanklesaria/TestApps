@@ -53,8 +53,7 @@ function App() {
     changeDisplay(true);
     var str_data = localStorage.getItem("data");
     if (str_data) {
-      data = JSON.parse(str_data);
-      updateStateData(data);
+      updateStateData(JSON.parse(str_data));
     }
   }
 

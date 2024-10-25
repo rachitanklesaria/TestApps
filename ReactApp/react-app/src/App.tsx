@@ -3,8 +3,11 @@ import { useState } from 'react'
 
 function App() {
   var [display, changeDisplay] = useState(false);
-  var [stateData, updateStateData] = useState([""]);
   var data: string[] = [];
+  var str_data = localStorage.getItem("data");
+  if (str_data) {
+    data = JSON.parse(str_data);
+  }
   var size = 6;
   var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
@@ -21,12 +24,11 @@ function App() {
       data[i] = str;
     }
     localStorage.setItem("data", JSON.stringify(data));
-    data = [];
+    changeDisplay(false);
   }
 
   function clearData() {
     changeDisplay(false);
-    updateStateData([""]);
     localStorage.removeItem("data");
   }
 
@@ -46,6 +48,7 @@ function App() {
       }
       localStorage.setItem("data", JSON.stringify(data));
       data = [];
+      changeDisplay(false);
     }
   }
 
@@ -53,7 +56,7 @@ function App() {
     changeDisplay(true);
     var str_data = localStorage.getItem("data");
     if (str_data) {
-      updateStateData(JSON.parse(str_data));
+      data = JSON.parse(str_data);
     }
   }
 
@@ -76,7 +79,7 @@ function App() {
       <button onClick={() => { clearData() }}>Delete Records</button>
     </nav>
     <div className="op">
-      {display && stateData.map((item: string, index: number) => <span key={index}>{item}</span>)}
+      {display && data.map((item: string, index: number) => <span key={index}>{item}</span>)}
     </div>
   </>
   )

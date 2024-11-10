@@ -7,6 +7,7 @@ function App() {
   var str_data = localStorage.getItem("data");
   if (str_data) {
     data = JSON.parse(str_data);
+    str_data = null;
   }
   var size = 6;
   var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
@@ -24,6 +25,7 @@ function App() {
       data[i] = str;
     }
     localStorage.setItem("data", JSON.stringify(data));
+    data = [];
     changeDisplay(false);
   }
 
@@ -36,6 +38,7 @@ function App() {
     var str_data = localStorage.getItem("data");
     if (str_data !== null) {
       data = JSON.parse(str_data);
+      str_data = null;
       if (num > data.length) {
         num = data.length;
       }
@@ -54,10 +57,6 @@ function App() {
 
   function displayData() {
     changeDisplay(true);
-    var str_data = localStorage.getItem("data");
-    if (str_data) {
-      data = JSON.parse(str_data);
-    }
   }
 
 

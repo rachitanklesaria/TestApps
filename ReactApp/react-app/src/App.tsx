@@ -78,7 +78,10 @@ function App() {
       <button onClick={() => { clearData() }}>Delete Records</button>
     </nav>
     <div className="op">
-      {display && data.map((item: string, index: number) => <span key={index}>{item}</span>)}
+      {display &&
+        <div>
+          {data.map((item: string, index: number) => <span key={index}>{item}</span>)}
+        </div>}
     </div>
   </>
   )

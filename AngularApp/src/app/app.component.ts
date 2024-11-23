@@ -4,7 +4,6 @@ import { RouterOutlet } from '@angular/router';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -14,7 +13,6 @@ export class AppComponent {
   data: string[] = [];
   size = 6;
   chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-  display = false;
 
   ranNum(max: number) {
     return Math.floor(Math.random() * (max));
@@ -54,11 +52,9 @@ export class AppComponent {
   clearData() {
     this.data = [];
     localStorage.removeItem("data");
-    this.display = false;
   }
 
   displayData() {
-    this.display = true;
     var str_data = localStorage.getItem("data");
     if (str_data !== null) {
       this.data = JSON.parse(str_data);
